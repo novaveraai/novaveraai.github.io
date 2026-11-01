@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   NOVA VERA — DESIGN TOKENS
+   Palette locked: crimson #F00008 + true black / white / silver / gray
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --brand-primary: #F00008;
+  --brand-highlight: #FF0000;
+  --brand-dark-red: #960000;
+
+  /* Surfaces */
+  --bg-base: #000000;
+  --bg-main: #050505;
+  --bg-secondary: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-elevated: #181818;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8B8B8;
+  --text-muted: #777777;
+
+  /* Lines */
+  --line: #303030;
+  --line-soft: rgba(255, 255, 255, 0.12);
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 16px;
+
+  /* Layout */
+  --content-max: 1200px;
+  --nav-height: 72px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--brand-primary);
+  color: var(--text-primary);
+}
+
+/* Focus — accessible & on-brand */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TYPOGRAPHY
+   ───────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LAYOUT PRIMITIVES
+   ───────────────────────────────────────────────────────────── */
+.container-nv {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-nv {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GLASSMORPHISM
+   On true black, glass needs a backdrop behind it to read.
+   GridBackdrop provides that. These classes define the glass.
+   ───────────────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+.glass-nav {
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* Crimson accent bar (used under section headings, active nav, etc.) */
+.accent-bar {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--brand-primary);
+  border-radius: 999px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  transition: all 200ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--brand-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-highlight);
+  border-color: var(--brand-highlight);
+  box-shadow: 0 0 24px rgba(240, 0, 8, 0.35);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--line-soft);
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLLBAR (monochrome)
+   ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+  border: 2px solid var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) var(--bg-base);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION
+   Required by PID §8.5 — respect user OS preference
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   UTILITIES
+   ───────────────────────────────────────────────────────────── */
+.text-gradient-mono {
+  background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--line-soft) 20%,
+    var(--line-soft) 80%,
+    transparent
+  );
+}
+
+/* Faint noise for glass depth (used selectively) */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
