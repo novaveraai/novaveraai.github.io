@@ -4,6 +4,11 @@ import GridBackdrop from "@/components/GridBackdrop";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import {
+  OrganizationSchema,
+  PersonSchema,
+  WebSiteSchema,
+} from "@/components/StructuredData";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -77,7 +82,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable}`}
     >
       <body className="relative min-h-screen bg-bg-base font-body text-text-primary antialiased">
-        <GridBackdrop glow />
+        <OrganizationSchema />
+        <PersonSchema />
+        <WebSiteSchema />
+       
+ <GridBackdrop glow />
 
         <div className="relative z-10 flex min-h-screen flex-col">
           <Navbar />

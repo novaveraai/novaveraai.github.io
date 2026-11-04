@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Target, Compass, Cog } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import CinematicHero from "@/components/CinematicHero";
 import GlassCard from "@/components/GlassCard";
 import DragonLogo from "@/components/DragonLogo";
 import { site } from "@/lib/site";
@@ -15,25 +16,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="container-nv pt-24 pb-16">
-        <div className="max-w-3xl">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="accent-bar" />
-            <span className="mono text-[11px] uppercase tracking-[0.22em] text-text-muted">
-              About the Laboratory
-            </span>
-          </div>
-          <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
-            An independent laboratory exploring the frontier of intelligent systems.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-text-secondary">
-            {site.name} is an independent research and development initiative
-            focused on artificial intelligence, robotics, software engineering,
-            and emerging computational technologies.
-          </p>
-        </div>
-      </section>
+            <CinematicHero />
 
       {/* Mission / Vision / Approach */}
       <section className="container-nv pb-24">

@@ -34,13 +34,14 @@ export const site = {
   // hidden from the UI — never shipped as dead "#" links.
   // When you have the real URL, replace null with the string.
   // ─────────────────────────────────────────────────────────────
-  social: {
+   social: {
     github: "https://github.com/novaveraai",
     linkedin: "https://www.linkedin.com/in/nova-veraai-587712421/",
+    youtube: "https://www.youtube.com/@NovaveraAI",
+    whatsappChannel: "https://whatsapp.com/channel/0029VbD0w9tCxoAyG0KOzL3w",
+    whatsappGroup: "https://chat.whatsapp.com/G0byg65j2y5CIIr5e8yS8o",
+    gumroad: "https://gumroad.com/dashboard",
     instagram: null as string | null,
-    whatsappChannel: null as string | null,
-    whatsappGroup: null as string | null,
-    youtube: null as string | null,
   },
 
   // ─────────────────────────────────────────────────────────────

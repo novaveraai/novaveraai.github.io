@@ -18,6 +18,7 @@ export default function DragonSentinelPage() {
 
   return (
     <>
+      <ProductSchema slug="dragon-sentinel" />
       <section className="container-nv pt-16">
         <Link
           href="/products"

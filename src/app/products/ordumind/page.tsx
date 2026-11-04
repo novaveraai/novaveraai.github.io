@@ -1,3 +1,4 @@
+import { ProductSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -18,6 +19,7 @@ export default function OrdumindPage() {
 
   return (
     <>
+      <ProductSchema slug="ordumind" />
       <section className="container-nv pt-16">
         <Link
           href="/products"
