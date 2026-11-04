@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import GlassCard from "@/components/GlassCard";
 import DragonLogo from "@/components/DragonLogo";
 import { getProduct } from "@/lib/content";
+import { ProductSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   title: "Dragon Sentinel",
