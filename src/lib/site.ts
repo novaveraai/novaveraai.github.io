@@ -40,7 +40,7 @@ export const site = {
     youtube: "https://www.youtube.com/@NovaveraAI",
     whatsappChannel: "https://whatsapp.com/channel/0029VbD0w9tCxoAyG0KOzL3w",
     whatsappGroup: "https://chat.whatsapp.com/G0byg65j2y5CIIr5e8yS8o",
-    gumroad: "https://gumroad.com/dashboard",
+    gumroad: "https://novaveraai.gumroad.com/",
     instagram: null as string | null,
   },
 
