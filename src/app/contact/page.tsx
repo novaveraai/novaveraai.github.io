@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Mail, Github, Linkedin, Instagram, Youtube, MessageCircle, ArrowUpRight } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Youtube,
+  MessageCircle,
+  ShoppingBag,
+  Instagram,
+  ArrowUpRight,
+} from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import GlassCard from "@/components/GlassCard";
 import { site } from "@/lib/site";
@@ -13,10 +22,11 @@ export default function ContactPage() {
   const socials = [
     { key: "github", label: "GitHub", icon: Github, href: site.social.github, description: "Open-source repositories and code." },
     { key: "linkedin", label: "LinkedIn", icon: Linkedin, href: site.social.linkedin, description: "Professional profile and updates." },
-    { key: "instagram", label: "Instagram", icon: Instagram, href: site.social.instagram, description: "Behind-the-scenes and visual updates." },
     { key: "youtube", label: "YouTube", icon: Youtube, href: site.social.youtube, description: "Technical videos and demonstrations." },
     { key: "whatsappChannel", label: "WhatsApp Channel", icon: MessageCircle, href: site.social.whatsappChannel, description: "Announcements and updates." },
     { key: "whatsappGroup", label: "WhatsApp Group", icon: MessageCircle, href: site.social.whatsappGroup, description: "Community discussions." },
+    { key: "gumroad", label: "Gumroad", icon: ShoppingBag, href: site.social.gumroad, description: "Products and digital downloads." },
+    { key: "instagram", label: "Instagram", icon: Instagram, href: site.social.instagram, description: "Behind-the-scenes and visual updates." },
   ].filter((s) => s.href !== null && s.href !== "");
 
   return (
@@ -29,7 +39,6 @@ export default function ContactPage() {
         />
       </section>
 
-      {/* Primary contact */}
       <section className="container-nv pb-16">
         <GlassCard strong className="p-10 md:p-14">
           <p className="mono text-[11px] uppercase tracking-[0.22em] text-text-muted">
@@ -53,13 +62,12 @@ export default function ContactPage() {
         </GlassCard>
       </section>
 
-      {/* Social channels */}
       {socials.length > 0 && (
         <section className="container-nv pb-24">
           <SectionHeading
             eyebrow="Follow"
             title="Other channels"
-            description="Where the laboratory shares updates, code, and technical work."
+            description="Where the laboratory shares updates, code, and products."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {socials.map(({ key, label, icon: Icon, href, description }) => (
@@ -85,17 +93,6 @@ export default function ContactPage() {
                 </GlassCard>
               </a>
             ))}
-          </div>
-        </section>
-      )}
-
-      {/* Note about missing channels */}
-      {socials.length < 6 && (
-        <section className="container-nv pb-24">
-          <div className="mx-auto max-w-2xl border-t border-line-soft pt-8 text-center">
-            <p className="mono text-[10px] uppercase tracking-[0.22em] text-text-muted">
-              Additional channels coming soon
-            </p>
           </div>
         </section>
       )}
