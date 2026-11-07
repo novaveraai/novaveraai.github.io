@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { Github, Linkedin, Instagram, Youtube, MessageCircle, Mail } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Youtube,
+  MessageCircle,
+  ShoppingBag,
+  Instagram,
+  Mail,
+} from "lucide-react";
 import DragonLogo from "./DragonLogo";
 import { site } from "@/lib/site";
 
@@ -7,10 +15,11 @@ export default function Footer() {
   const socials = [
     { key: "github", label: "GitHub", icon: Github, href: site.social.github },
     { key: "linkedin", label: "LinkedIn", icon: Linkedin, href: site.social.linkedin },
-    { key: "instagram", label: "Instagram", icon: Instagram, href: site.social.instagram },
     { key: "youtube", label: "YouTube", icon: Youtube, href: site.social.youtube },
     { key: "whatsappChannel", label: "WhatsApp Channel", icon: MessageCircle, href: site.social.whatsappChannel },
     { key: "whatsappGroup", label: "WhatsApp Group", icon: MessageCircle, href: site.social.whatsappGroup },
+    { key: "gumroad", label: "Gumroad", icon: ShoppingBag, href: site.social.gumroad },
+    { key: "instagram", label: "Instagram", icon: Instagram, href: site.social.instagram },
   ].filter((s) => s.href !== null && s.href !== "");
 
   const navLeft = site.nav.slice(0, 4);
@@ -20,10 +29,9 @@ export default function Footer() {
     <footer className="relative mt-32 border-t border-line-soft">
       <div className="container-nv py-16">
         <div className="grid gap-12 md:grid-cols-12">
-          {/* ── Brand block ── */}
           <div className="md:col-span-4">
             <Link href="/" className="mb-4 flex items-center gap-3">
-              <DragonLogo letter="N" size={36} />
+              <DragonLogo letter="N" size={40} />
               <div className="flex flex-col leading-tight">
                 <span className="font-heading text-base font-semibold text-white">
                   {site.name}
@@ -41,7 +49,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* ── Nav col 1 ── */}
           <div className="md:col-span-2">
             <h3 className="mb-4 mono text-[11px] uppercase tracking-[0.18em] text-text-muted">
               Navigate
@@ -60,7 +67,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Nav col 2 ── */}
           <div className="md:col-span-2">
             <h3 className="mb-4 mono text-[11px] uppercase tracking-[0.18em] text-text-muted">
               Explore
@@ -79,7 +85,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Contact ── */}
           <div className="md:col-span-4">
             <h3 className="mb-4 mono text-[11px] uppercase tracking-[0.18em] text-text-muted">
               Contact
@@ -105,6 +110,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={label}
+                        title={label}
                         className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-line-soft text-text-secondary transition-colors hover:border-brand-primary hover:text-brand-primary"
                       >
                         <Icon size={16} />
@@ -117,7 +123,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Bottom bar ── */}
         <div className="mt-16 flex flex-col gap-3 border-t border-line-soft pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>{site.copyright}</p>
           <p className="mono uppercase tracking-[0.18em]">{site.tagline}</p>
