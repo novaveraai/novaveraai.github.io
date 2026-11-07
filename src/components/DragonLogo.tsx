@@ -11,11 +11,11 @@ interface DragonLogoProps {
 }
 
 const logoFiles: Record<Letter, string> = {
-  N: "/logos/nova-vera.png",
-  O: "/logos/ordumind.png",
-  S: "/logos/dragon-sentinel.png",
-  A: "/logos/ordumind.png",
-  D: "/logos/dragon-sentinel.png",
+  N: "/logos/nova-vera.webp",
+  O: "/logos/ordumind.webp",
+  S: "/logos/dragon-sentinel.webp",
+  A: "/logos/ordumind.webp",
+  D: "/logos/dragon-sentinel.webp",
 };
 
 export default function DragonLogo({
