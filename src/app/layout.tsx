@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   authors: [{ name: site.founder.name }],
   creator: site.founder.name,
   publisher: site.name,
+  verification: {
+    google: "Hdj8YaryyhB6HC7JG2fX23Cg7EU4y8SnuKHXUTi151o",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -85,8 +88,8 @@ export default function RootLayout({
         <OrganizationSchema />
         <PersonSchema />
         <WebSiteSchema />
-       
- <GridBackdrop glow />
+
+        <GridBackdrop glow />
 
         <div className="relative z-10 flex min-h-screen flex-col">
           <Navbar />
