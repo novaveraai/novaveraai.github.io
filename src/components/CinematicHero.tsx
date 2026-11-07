@@ -73,14 +73,16 @@ export default function CinematicHero() {
               {site.subtitle}
             </span>
           </div>
-
           <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             {headlineWords.map((word, i) => (
-              <span key={i} className={`word-in ${word.delay}`}>
+              <span
+                key={i}
+                className={`word-in ${word.delay}`}
+                style={{ marginRight: "0.25em" }}
+              >
                 <span className={word.highlight ? "text-gradient-mono" : ""}>
                   {word.text}
                 </span>
-                {i < headlineWords.length - 1 ? " " : ""}
               </span>
             ))}
           </h1>
