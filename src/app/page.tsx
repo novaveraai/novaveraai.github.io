@@ -9,8 +9,16 @@ import { site } from "@/lib/site";
 import { divisions } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `About ${site.name} — ${site.subtitle}. Mission, philosophy, founder, and research direction.`,
+  title: `${site.name} — ${site.subtitle}`,
+  description: `${site.name} is an independent AI & robotics research laboratory founded by ${site.founder.name}. Projects, products, publications, and engineering work.`,
+  alternates: { canonical: site.url },
+  openGraph: {
+    title: `${site.name} — ${site.subtitle}`,
+    description: `${site.name} is an independent AI & robotics research laboratory founded by ${site.founder.name}.`,
+    url: site.url,
+    siteName: site.name,
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
