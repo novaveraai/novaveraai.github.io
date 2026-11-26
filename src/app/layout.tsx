@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import GridBackdrop from "@/components/GridBackdrop";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,24 +11,31 @@ import {
 } from "@/components/StructuredData";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const spaceGrotesk = localFont({
+  src: [
+    { path: "./fonts/space-grotesk-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/space-grotesk-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/space-grotesk-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/space-grotesk-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-space-grotesk",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter-latin-400-normal.woff2",
   variable: "--font-inter",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const plexMono = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-mono-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-plex-mono",
   display: "swap",
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
