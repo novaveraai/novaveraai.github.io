@@ -324,3 +324,205 @@ code, pre, .mono {
 .particle.d2 { animation-delay: 4s; }
 .particle.d3 { animation-delay: 8s; }
 .particle.d4 { animation-delay: 12s; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   LIQUID GLASS ANIMATIONS
+   Used by certifications page, poetry page, and any glass
+   element that needs subtle motion.
+   ───────────────────────────────────────────────────────────── */
+
+/* Animated gradient border — soft crimson pulse traveling along card edge */
+@keyframes liquid-border-pulse {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    opacity: 0.5; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+    opacity: 1; 
+  }
+}
+
+.liquid-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.liquid-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(240, 0, 8, 0) 0%,
+    rgba(240, 0, 8, 0.6) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(240, 0, 8, 0.6) 75%,
+    rgba(240, 0, 8, 0) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: liquid-border-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating motion — subtle up/down drift */
+@keyframes liquid-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.liquid-float {
+  animation: liquid-float 6s ease-in-out infinite;
+}
+
+.liquid-float.d1 { animation-delay: 0s; }
+.liquid-float.d2 { animation-delay: 0.8s; }
+.liquid-float.d3 { animation-delay: 1.6s; }
+.liquid-float.d4 { animation-delay: 2.4s; }
+.liquid-float.d5 { animation-delay: 3.2s; }
+.liquid-float.d6 { animation-delay: 4s; }
+
+/* Hover ripple — card scales and glows softly */
+@keyframes liquid-ripple {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.liquid-hover {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.liquid-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(240, 0, 8, 0.12), 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Ambient crimson blob — soft morphing glow behind a section */
+@keyframes liquid-blob-morph {
+  0%, 100% {
+    border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  33% {
+    border-radius: 60% 40% 45% 55% / 40% 60% 45% 55%;
+    transform: translate(20px, -15px) scale(1.05);
+    opacity: 0.22;
+  }
+  66% {
+    border-radius: 45% 55% 60% 40% / 60% 45% 55% 40%;
+    transform: translate(-15px, 10px) scale(0.95);
+    opacity: 0.18;
+  }
+}
+
+.liquid-blob {
+  position: absolute;
+  filter: blur(60px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(240, 0, 8, 0.6) 0%,
+    rgba(240, 0, 8, 0.2) 40%,
+    transparent 70%
+  );
+  animation: liquid-blob-morph 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Status badge — small pulsing dot for "In Progress" / "Planned" */
+@keyframes status-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(240, 0, 8, 0.6);
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 0 6px rgba(240, 0, 8, 0);
+    opacity: 0.7;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.status-dot.in-progress {
+  background: #FFA500;
+}
+
+.status-dot.planned {
+  background: #777777;
+  animation: none;
+}
+
+.status-dot.completed {
+  background: #00C853;
+  animation: none;
+}
+
+/* Poetry card — grid tile for each poem */
+.poetry-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  cursor: pointer;
+}
+
+.poetry-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 0, 8, 0.45);
+  box-shadow: 0 16px 40px rgba(240, 0, 8, 0.1), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Language badge */
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+}
+
+.lang-badge.english { border-color: rgba(240, 0, 8, 0.4); color: var(--brand-primary); }
+.lang-badge.urdu { border-color: rgba(255, 255, 255, 0.25); color: var(--text-secondary); }
+.lang-badge.hindi { border-color: rgba(255, 200, 0, 0.3); color: #FFC800; }
+.lang-badge.other { border-color: rgba(180, 180, 180, 0.3); color: var(--text-secondary); }
+
+/* Reduced-motion: disable all liquid animations */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-border::before,
+  .liquid-float,
+  .liquid-blob,
+  .status-dot {
+    animation: none !important;
+  }
+  
+  .liquid-hover:hover,
+  .poetry-card:hover {
+    transform: none;
+  }
+}

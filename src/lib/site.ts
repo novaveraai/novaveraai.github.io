@@ -14,7 +14,7 @@ export const site = {
     "An independent research laboratory exploring artificial intelligence, robotics, software engineering and emerging computational technologies.",
 
   founder: {
-    name: "S. Asjad Ali Jafri",
+    name: "Lion S. Asjad Ali Jafri",
     designation: "Founder & Lead Researcher",
   },
 
@@ -52,11 +52,12 @@ export const site = {
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
+    { label: "Certifications", href: "/certifications" },
     { label: "Research", href: "/research", stub: true },
     { label: "Projects", href: "/projects" },
     { label: "Products", href: "/products" },
-    { label: "Publications", href: "/publications", stub: true },
-    { label: "Insights", href: "/insights", stub: true },
+    { label: "Poetry", href: "/poetry" },
+    { label: "Publications", href: "/publications" },
     { label: "Contact", href: "/contact" },
   ],
 
