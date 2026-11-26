@@ -24,6 +24,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: poem.description,
     keywords: [poem.title, poem.language, ...poem.tags, "poetry", "poem", site.name],
     authors: [{ name: site.founder.name }],
+    openGraph: {
+      type: "article",
+      title: `${poem.title} — Poetry`,
+      description: poem.description,
+      url: `${site.url}/poetry/${poem.slug}`,
+      siteName: site.name,
+      authors: [site.founder.name],
+      images: [
+        {
+          url: `${site.url}/profile/founder-portrait.png`,
+          width: 1200,
+          height: 1200,
+          alt: `${site.founder.name} — ${site.founder.designation}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${poem.title} — Poetry`,
+      description: poem.description,
+      images: [`${site.url}/profile/founder-portrait.png`],
+    },
     alternates: { canonical: `${site.url}/poetry/${poem.slug}` },
   };
 }
@@ -34,10 +56,14 @@ export default function PoemPage({ params }: PageProps) {
   return (
     <>
       <section className="container-nv pt-16">
-        <Link href="/poetry" className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-brand-primary">
+        <Link
+          href="/poetry"
+          className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-brand-primary"
+        >
           <ArrowLeft size={14} /> All poems
         </Link>
       </section>
+
       <section className="container-nv pt-8 pb-12">
         <div className="mx-auto max-w-3xl">
           <div className="mb-6 flex items-center gap-3">
@@ -49,16 +75,45 @@ export default function PoemPage({ params }: PageProps) {
           <h1 className="text-3xl font-semibold leading-[1.15] tracking-tight md:text-5xl">
             {poem.title}
           </h1>
+
+          {/* Author row with portrait */}
+          <div className="mt-6 flex items-center gap-4">
+            <img
+              src="/profile/founder-portrait.png"
+              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              width={72}
+              height={72}
+              className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover md:h-20 md:w-20"
+            />
+            <div>
+              <p className="font-heading text-lg text-white md:text-xl">
+                {site.founder.name}
+              </p>
+              <p className="mono mt-1 text-[11px] uppercase tracking-[0.22em] text-text-muted">
+                {site.founder.designation} · {site.name}
+              </p>
+            </div>
+          </div>
+
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line-soft py-4 text-xs text-text-muted">
-            <span className="inline-flex items-center gap-1.5"><User size={14} /> {site.founder.name}</span>
+            <span className="inline-flex items-center gap-1.5">
+              <User size={14} /> {site.founder.name}
+            </span>
             <span className="inline-flex items-center gap-1.5">
               <Calendar size={14} />
-              {new Date(poem.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              {new Date(poem.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </span>
-            <span className={`lang-badge ${poem.language.toLowerCase()}`}>{poem.language}</span>
+            <span className={`lang-badge ${poem.language.toLowerCase()}`}>
+              {poem.language}
+            </span>
           </div>
         </div>
       </section>
+
       <section className="container-nv pb-16">
         <div className="mx-auto max-w-3xl">
           <GlassCard strong className="p-10 md:p-14">
@@ -71,19 +126,31 @@ export default function PoemPage({ params }: PageProps) {
           </GlassCard>
           {poem.tags.length > 0 && (
             <div className="mt-12 border-t border-line-soft pt-8">
-              <p className="mono mb-3 text-[10px] uppercase tracking-[0.18em] text-text-muted">Tags</p>
+              <p className="mono mb-3 text-[10px] uppercase tracking-[0.18em] text-text-muted">
+                Tags
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 {poem.tags.map((tag) => (
-                  <span key={tag} className="mono rounded border border-line-soft px-2 py-0.5 text-[10px] uppercase tracking-wider text-text-muted">{tag}</span>
+                  <span
+                    key={tag}
+                    className="mono rounded border border-line-soft px-2 py-0.5 text-[10px] uppercase tracking-wider text-text-muted"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
           )}
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
-            <Link href="/poetry" className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-brand-primary">
+            <Link
+              href="/poetry"
+              className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-brand-primary"
+            >
               <ArrowLeft size={14} /> All poems
             </Link>
-            <Link href="/publications" className="btn btn-ghost text-xs">Read publications</Link>
+            <Link href="/publications" className="btn btn-ghost text-xs">
+              Read publications
+            </Link>
           </div>
         </div>
       </section>

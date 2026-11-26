@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Target, Compass, Cog } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import GlassCard from "@/components/GlassCard";
-import DragonLogo from "@/components/DragonLogo";
 import { site } from "@/lib/site";
 import { divisions } from "@/lib/content";
 
@@ -74,7 +73,13 @@ export default function AboutPage() {
         />
         <GlassCard strong className="mt-12 overflow-hidden p-10 md:p-14">
           <div className="flex flex-col gap-8 md:flex-row md:items-center">
-            <DragonLogo letter="N" size={96} className="shrink-0" />
+            <img
+              src="/profile/founder-portrait.png"
+              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              width={96}
+              height={96}
+              className="h-24 w-24 shrink-0 rounded-full border border-white/10 object-cover"
+            />
             <div>
               <p className="mono text-[11px] uppercase tracking-[0.22em] text-text-muted">
                 {site.founder.designation}

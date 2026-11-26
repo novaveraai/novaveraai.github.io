@@ -49,11 +49,24 @@ export default function PoetryIndexPage() {
           <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
             Words from <span className="text-gradient-mono">the human side.</span>
           </h1>
+          <div className="mt-8 flex items-center gap-4">
+            <img
+              src="/profile/founder-portrait.png"
+              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              width={64}
+              height={64}
+              className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover"
+            />
+            <div>
+              <p className="text-base text-white">{site.founder.name}</p>
+              <p className="mono text-[10px] uppercase tracking-[0.22em] text-text-muted">
+                {site.founder.designation}
+              </p>
+            </div>
+          </div>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
-            Original poetry by{" "}
-            <span className="text-white">{site.founder.name}</span> — verses
-            written alongside the engineering, documenting the quieter
-            observations.
+            Original poetry — verses written alongside the engineering,
+            documenting the quieter observations.
           </p>
         </div>
       </section>

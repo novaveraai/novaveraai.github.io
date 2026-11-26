@@ -67,14 +67,28 @@ export default function CinematicHero() {
 
       <div className="container-nv relative flex min-h-[88vh] flex-col justify-center py-24 md:py-32">
         <div className="max-w-4xl">
+          <div className="word-in d1 mb-8 flex items-center gap-4">
+            <img
+              src="/profile/founder-portrait.png"
+              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              width={80}
+              height={80}
+              className="h-16 w-16 shrink-0 rounded-full border border-white/15 object-cover md:h-20 md:w-20"
+            />
+            <div>
+              <p className="text-sm text-white md:text-base">{site.founder.name}</p>
+              <p className="mono text-[10px] uppercase tracking-[0.22em] text-text-muted">
+                {site.founder.designation}
+              </p>
+            </div>
+          </div>
           <div className="mb-6 flex items-center gap-3">
             <span className="accent-bar" />
             <span className="mono text-[11px] uppercase tracking-[0.22em] text-text-muted">
               {site.subtitle}
             </span>
           </div>
-          <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-            {headlineWords.map((word, i) => (
+          <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">            {headlineWords.map((word, i) => (
               <span
                 key={i}
                 className={`word-in ${word.delay}`}
