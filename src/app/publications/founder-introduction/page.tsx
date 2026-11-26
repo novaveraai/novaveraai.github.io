@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
-import DragonLogo from "@/components/DragonLogo";
 import { site } from "@/lib/site";
 
 const ARTICLE = {
@@ -70,11 +69,20 @@ export const metadata: Metadata = {
     publishedTime: ARTICLE.date,
     authors: [ARTICLE.author],
     tags: ARTICLE.tags,
+    images: [
+      {
+        url: `${site.url}/profile/founder-portrait.png`,
+        width: 1200,
+        height: 1200,
+        alt: `${ARTICLE.author} — ${ARTICLE.authorTitle}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: ARTICLE.title,
     description: ARTICLE.description,
+    images: [`${site.url}/profile/founder-portrait.png`],
   },
   alternates: {
     canonical: `${site.url}/publications/founder-introduction`,
@@ -86,17 +94,23 @@ const articleSchema = {
   "@type": "Article",
   headline: ARTICLE.title,
   description: ARTICLE.description,
+  image: `${site.url}/profile/founder-portrait.png`,
   datePublished: ARTICLE.date,
   author: {
     "@type": "Person",
     name: ARTICLE.author,
     jobTitle: ARTICLE.authorTitle,
+    image: `${site.url}/profile/founder-portrait.png`,
     url: site.url,
   },
   publisher: {
     "@type": "ResearchOrganization",
     name: site.name,
     url: site.url,
+    logo: {
+      "@type": "ImageObject",
+      url: `${site.url}/profile/founder-portrait.png`,
+    },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -133,12 +147,23 @@ export default function FounderIntroductionPage() {
           <h1 className="text-3xl font-semibold leading-[1.15] tracking-tight md:text-5xl">
             About the Founder
           </h1>
-          <p className="mt-4 font-heading text-xl text-white md:text-2xl">
-            {ARTICLE.author}
-          </p>
-          <p className="mono mt-2 text-[11px] uppercase tracking-[0.22em] text-text-muted">
-            {ARTICLE.authorTitle} · {site.name}
-          </p>
+          <div className="mt-6 flex items-center gap-4">
+            <img
+              src="/profile/founder-portrait.png"
+              alt={`${ARTICLE.author} — ${ARTICLE.authorTitle}, ${site.name}`}
+              width={96}
+              height={96}
+              className="h-20 w-20 shrink-0 rounded-full border border-white/10 object-cover md:h-24 md:w-24"
+            />
+            <div>
+              <p className="font-heading text-xl text-white md:text-2xl">
+                {ARTICLE.author}
+              </p>
+              <p className="mono mt-1 text-[11px] uppercase tracking-[0.22em] text-text-muted">
+                {ARTICLE.authorTitle} · {site.name}
+              </p>
+            </div>
+          </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line-soft py-4 text-xs text-text-muted">
             <span className="inline-flex items-center gap-1.5">
@@ -275,7 +300,7 @@ export default function FounderIntroductionPage() {
             </p>
 
             <h2 className="!mt-12 text-2xl font-semibold text-white">
-              Nova Vera AI & Robotics Lab
+              Nova Vera AI &amp; Robotics Lab
             </h2>
             <p>
               Nova Vera AI &amp; Robotics Lab is an independent research
@@ -488,7 +513,15 @@ export default function FounderIntroductionPage() {
           {/* Author card */}
           <GlassCard className="mt-12 p-6">
             <div className="flex items-start gap-4">
-              <DragonLogo letter="N" size={56} />
+              <img
+                src="/profile/founder-portrait.png"
+                alt={`${ARTICLE.author} — ${ARTICLE.authorTitle}`}
+                width={80}
+                height={80}
+                loading="lazy"
+                decoding="async"
+                className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover"
+              />
               <div>
                 <p className="font-heading text-base text-white">
                   {ARTICLE.author}
