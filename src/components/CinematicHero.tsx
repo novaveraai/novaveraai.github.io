@@ -69,8 +69,8 @@ export default function CinematicHero() {
         <div className="max-w-4xl">
           <div className="word-in d1 mb-8 flex items-center gap-4">
             <img
-              src="/profile/founder-portrait.png"
-              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              src="/profile/founder-portrait.webp"
+              alt={`${site.founder.name} â€” ${site.founder.designation}, ${site.name}`}
               width={80}
               height={80}
               className="h-16 w-16 shrink-0 rounded-full border border-white/15 object-cover md:h-20 md:w-20"

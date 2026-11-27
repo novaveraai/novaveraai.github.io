@@ -8,7 +8,7 @@ import { divisions } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${site.name} — ${site.subtitle}. Mission, philosophy, founder, and research direction.`,
+  description: `About ${site.name} â€” ${site.subtitle}. Mission, philosophy, founder, and research direction.`,
 };
 
 export default function AboutPage() {
@@ -58,7 +58,7 @@ export default function AboutPage() {
             <h2 className="mt-5 font-heading text-lg">Approach</h2>
             <p className="mt-3 text-sm text-text-secondary">
               First-principles experimentation, disciplined documentation, and
-              honest presentation of work in progress — no inflated claims, no
+              honest presentation of work in progress â€” no inflated claims, no
               invented achievements.
             </p>
           </GlassCard>
@@ -74,8 +74,8 @@ export default function AboutPage() {
         <GlassCard strong className="mt-12 overflow-hidden p-10 md:p-14">
           <div className="flex flex-col gap-8 md:flex-row md:items-center">
             <img
-              src="/profile/founder-portrait.png"
-              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              src="/profile/founder-portrait.webp"
+              alt={`${site.founder.name} â€” ${site.founder.designation}, ${site.name}`}
               width={96}
               height={96}
               className="h-24 w-24 shrink-0 rounded-full border border-white/10 object-cover"

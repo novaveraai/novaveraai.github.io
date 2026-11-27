@@ -71,10 +71,10 @@ export const metadata: Metadata = {
     tags: ARTICLE.tags,
     images: [
       {
-        url: `${site.url}/profile/founder-portrait.png`,
+        url: `${site.url}/profile/founder-portrait.webp`,
         width: 1200,
         height: 1200,
-        alt: `${ARTICLE.author} — ${ARTICLE.authorTitle}`,
+        alt: `${ARTICLE.author} â€” ${ARTICLE.authorTitle}`,
       },
     ],
   },
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: ARTICLE.title,
     description: ARTICLE.description,
-    images: [`${site.url}/profile/founder-portrait.png`],
+    images: [`${site.url}/profile/founder-portrait.webp`],
   },
   alternates: {
     canonical: `${site.url}/publications/founder-introduction`,
@@ -94,13 +94,13 @@ const articleSchema = {
   "@type": "Article",
   headline: ARTICLE.title,
   description: ARTICLE.description,
-  image: `${site.url}/profile/founder-portrait.png`,
+  image: `${site.url}/profile/founder-portrait.webp`,
   datePublished: ARTICLE.date,
   author: {
     "@type": "Person",
     name: ARTICLE.author,
     jobTitle: ARTICLE.authorTitle,
-    image: `${site.url}/profile/founder-portrait.png`,
+    image: `${site.url}/profile/founder-portrait.webp`,
     url: site.url,
   },
   publisher: {
@@ -109,7 +109,7 @@ const articleSchema = {
     url: site.url,
     logo: {
       "@type": "ImageObject",
-      url: `${site.url}/profile/founder-portrait.png`,
+      url: `${site.url}/profile/founder-portrait.webp`,
     },
   },
   mainEntityOfPage: {
@@ -149,8 +149,8 @@ export default function FounderIntroductionPage() {
           </h1>
           <div className="mt-6 flex items-center gap-4">
             <img
-              src="/profile/founder-portrait.png"
-              alt={`${ARTICLE.author} — ${ARTICLE.authorTitle}, ${site.name}`}
+              src="/profile/founder-portrait.webp"
+              alt={`${ARTICLE.author} â€” ${ARTICLE.authorTitle}, ${site.name}`}
               width={96}
               height={96}
               className="h-20 w-20 shrink-0 rounded-full border border-white/10 object-cover md:h-24 md:w-24"
@@ -160,7 +160,7 @@ export default function FounderIntroductionPage() {
                 {ARTICLE.author}
               </p>
               <p className="mono mt-1 text-[11px] uppercase tracking-[0.22em] text-text-muted">
-                {ARTICLE.authorTitle} · {site.name}
+                {ARTICLE.authorTitle} Â· {site.name}
               </p>
             </div>
           </div>
@@ -331,7 +331,7 @@ export default function FounderIntroductionPage() {
                   <strong className="text-white">
                     Artificial Intelligence and Agentic Systems
                   </strong>{" "}
-                  — Exploring intelligent agents, agentic frameworks, AI
+                  â€” Exploring intelligent agents, agentic frameworks, AI
                   architectures, automation, and the engineering principles
                   behind intelligent software.
                 </span>
@@ -339,7 +339,7 @@ export default function FounderIntroductionPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
                 <span>
-                  <strong className="text-white">Python Development</strong> —
+                  <strong className="text-white">Python Development</strong> â€”
                   Developing Python applications, automation systems,
                   experimental tools, programming projects, and practical
                   implementations of computational concepts.
@@ -348,7 +348,7 @@ export default function FounderIntroductionPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
                 <span>
-                  <strong className="text-white">C++ Programming</strong> —
+                  <strong className="text-white">C++ Programming</strong> â€”
                   Exploring software development, computational efficiency,
                   systems programming, and the relationship between software
                   and hardware.
@@ -360,7 +360,7 @@ export default function FounderIntroductionPage() {
                   <strong className="text-white">
                     Robotics and Embedded Systems
                   </strong>{" "}
-                  — Investigating robotics, microcontrollers, electronic
+                  â€” Investigating robotics, microcontrollers, electronic
                   systems, sensors, hardware integration, automation, and the
                   engineering principles behind intelligent machines.
                 </span>
@@ -369,7 +369,7 @@ export default function FounderIntroductionPage() {
                 <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
                 <span>
                   <strong className="text-white">Software Engineering</strong>{" "}
-                  — Exploring application architecture, development
+                  â€” Exploring application architecture, development
                   methodologies, backend systems, interface design, and the
                   practical process of transforming ideas into working
                   software.
@@ -489,7 +489,7 @@ export default function FounderIntroductionPage() {
             </p>
 
             <p className="!mt-12 text-sm italic text-text-muted">
-              — {ARTICLE.author}, {ARTICLE.authorTitle}
+              â€” {ARTICLE.author}, {ARTICLE.authorTitle}
             </p>
           </article>
 
@@ -514,8 +514,8 @@ export default function FounderIntroductionPage() {
           <GlassCard className="mt-12 p-6">
             <div className="flex items-start gap-4">
               <img
-                src="/profile/founder-portrait.png"
-                alt={`${ARTICLE.author} — ${ARTICLE.authorTitle}`}
+                src="/profile/founder-portrait.webp"
+                alt={`${ARTICLE.author} â€” ${ARTICLE.authorTitle}`}
                 width={80}
                 height={80}
                 loading="lazy"
