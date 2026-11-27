@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       authors: [site.founder.name],
       images: [
         {
-          url: `${site.url}/profile/founder-portrait.png`,
+          url: `${site.url}/profile/founder-portrait.webp`,
           width: 1200,
           height: 1200,
           alt: `${site.founder.name} — ${site.founder.designation}`,
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: `${poem.title} — Poetry`,
       description: poem.description,
-      images: [`${site.url}/profile/founder-portrait.png`],
+      images: [`${site.url}/profile/founder-portrait.webp`],
     },
     alternates: { canonical: `${site.url}/poetry/${poem.slug}` },
   };
@@ -79,7 +79,7 @@ export default function PoemPage({ params }: PageProps) {
           {/* Author row with portrait */}
           <div className="mt-6 flex items-center gap-4">
             <img
-              src="/profile/founder-portrait.png"
+              src="/profile/founder-portrait.webp"
               alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
               width={72}
               height={72}

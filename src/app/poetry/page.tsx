@@ -8,7 +8,7 @@ import { getAllPoems, getAllTags, getAllLanguages } from "@/lib/poetry";
 
 export const metadata: Metadata = {
   title: "Poetry",
-  description: `Original poetry by ${site.founder.name} — ${site.founder.designation} at ${site.name}. Multilingual verses on life, reflection, and the human side of building.`,
+  description: `Original poetry by ${site.founder.name} â€” ${site.founder.designation} at ${site.name}. Multilingual verses on life, reflection, and the human side of building.`,
   keywords: [
     "poetry",
     "original poems",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    title: `Poetry — ${site.name}`,
+    title: `Poetry â€” ${site.name}`,
     description: `Original poetry by ${site.founder.name}.`,
     url: `${site.url}/poetry`,
   },
@@ -51,8 +51,8 @@ export default function PoetryIndexPage() {
           </h1>
           <div className="mt-8 flex items-center gap-4">
             <img
-              src="/profile/founder-portrait.png"
-              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              src="/profile/founder-portrait.webp"
+              alt={`${site.founder.name} â€” ${site.founder.designation}, ${site.name}`}
               width={64}
               height={64}
               className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover"
@@ -65,7 +65,7 @@ export default function PoetryIndexPage() {
             </div>
           </div>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
-            Original poetry — verses written alongside the engineering,
+            Original poetry â€” verses written alongside the engineering,
             documenting the quieter observations.
           </p>
         </div>
@@ -112,7 +112,7 @@ export default function PoetryIndexPage() {
               The first poems are on their way
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-text-secondary">
-              Original poetry by {site.founder.name} will appear here —
+              Original poetry by {site.founder.name} will appear here â€”
               multilingual, tagged, and searchable. Each poem will have its own
               dedicated page.
             </p>

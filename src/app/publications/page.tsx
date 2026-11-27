@@ -49,6 +49,21 @@ export default function PublicationsPage() {
             Research. Notes.{" "}
             <span className="text-gradient-mono">Ideas.</span>
           </h1>
+          <div className="mt-8 flex items-center gap-4">
+            <img
+              src="/profile/founder-portrait.webp"
+              alt={`${site.founder.name} — ${site.founder.designation}, ${site.name}`}
+              width={64}
+              height={64}
+              className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover"
+            />
+            <div>
+              <p className="text-base text-white">{site.founder.name}</p>
+              <p className="mono text-[10px] uppercase tracking-[0.22em] text-text-muted">
+                {site.founder.designation}
+              </p>
+            </div>
+          </div>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
             Technical articles, founder notes, and engineering documentation
             from {site.name} — published as the work develops.
